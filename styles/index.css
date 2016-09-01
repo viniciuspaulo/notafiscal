@@ -1,0 +1,60 @@
+@import url("./elements.css");
+@import url("./principal.css");
+@import url("./perfil.css");
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+*, body{
+	font-family: 'Raleway';
+	margin:0;
+	padding: 0;
+	font-size: 1em;
+}
+
+#lista-usuarios{
+	position: fixed;
+	width: 20%;
+	height: 100%;
+	border: 1px solid #ddd;
+	background-color: whitesmoke;
+}
+#lista-usuarios ul li{
+	background-color: whitesmoke;
+	border-left: none !important;
+	border-right: none !important;
+}
+#lista-usuarios ul li:hover{
+	transition-duration: 0.5s;
+	background: #E4E1E1;
+	cursor: pointer;
+}
+#lista-usuarios ul:nth-child(1) li{
+	border: none;
+}
+#lista-usuarios ul:nth-child(1) .list-group-item{
+	padding: 0px !important;
+}
+#lista-usuarios ul:nth-child(1) li span{
+	font-size: 1em;
+	background: none;
+	border: none;
+	padding: 5px; 
+	border-left: 1px solid #ccc; 
+}
+#lista-usuarios ul:nth-child(1) li span span{
+	border: none;
+}
+#lista-usuarios .list-ul{
+	height: 100%;
+	overflow-y: scroll;
+}
+#lista-usuarios .list-ul::-webkit-scrollbar {
+    width: 0em;
+}
+#lista-usuarios  .list-group {
+	margin-bottom: 0px !important;
+}
+#li-selecionado{
+	display: none;
+}
+.datepicker > div{
+	display: block;
+}

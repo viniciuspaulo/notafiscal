@@ -1,0 +1,110 @@
+#painelPrincipal{
+	position: fixed;
+	float: right;
+	right: 0px;
+	width: 80%;
+}
+
+#painelPrincipal .principal-titulo{
+	padding: 7px 30px ;
+	font-weight: bolder;
+	font-size: 1.5em;
+	border-bottom: 1px solid #ccc; 
+}
+#painelPrincipal .list-options{
+	border-bottom: 1px solid #ccc; 
+}
+#painelPrincipal .list-options li{
+	display: inline-block;
+	padding: 10px;
+}
+#painelPrincipal .list-options li:hover{
+	cursor: pointer;
+	border-bottom: 2px solid #45cffe;
+}
+
+#transacoes .list-options{
+	border-bottom: 1px solid #ccc; 
+}
+#transacoes .list-options li{
+	display: inline-block;
+	border-bottom: 1px dashed #ccc; 
+	margin: 5px;
+}
+
+#transacoes .add-nota{
+	padding: 30px;
+	width: 80%;
+}
+#transacoes .add-nota .titulo{
+	font-weight: bolder;
+	font-size: 1.3em;
+}
+#transacoes .add-nota .add-nota-painel .form-control{
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+	border-bottom: 1px solid #ccc; 
+	border-radius: 0px !important;
+	box-shadow: none !important;
+}
+#transacoes .add-nota .add-nota-painel .titulo-label{
+	font-weight: bolder;
+}
+#transacoes .nota-opcoes li{
+	display: inline-block;
+	margin-left: 25px;
+}
+#transacoes .nota-opcoes li:nth-child(3){
+	width: 200px;
+}
+#transacoes .nota-btn{
+	float: right;
+	margin-top: 10px;
+}
+#transacoes .nota-btn button:nth-child(2){
+	background: #45cffe;
+	color: white;
+	font-weight: bolder;
+}
+
+
+#transacoes .cad-nota{
+	margin-top: 50px;
+}
+#transacoes .cad-nota .titulo-label{
+	font-weight: bolder;
+	font-size: 1.3em;
+}
+#transacoes .cad-nota .painel-cad-nota{
+	height: 150px;
+	overflow-y: scroll;
+}
+#transacoes .cad-nota table thead{
+	background: #ddd;
+}
+
+#transacoes .cad-nota tbody tr:hover{
+	transition-duration: 0.5s;
+	background: #E4E1E1;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

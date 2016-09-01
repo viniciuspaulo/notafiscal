@@ -1,0 +1,40 @@
+#perfil{
+	position: fixed;
+	width: 20%;
+	height: 100%;
+	border: 1px solid #ddd;
+	background-color: whitesmoke;
+	display: none;
+}
+#perfil ul li{
+	background-color: whitesmoke;
+	border-left: none !important;
+	border-right: none !important;
+	border-bottom: 1px solid #ccc !important;
+}
+#perfil ul li:hover{
+	transition-duration: 0.5s;
+	background: #E4E1E1;
+	cursor: pointer;
+}
+#perfil ul li:nth-child(1){
+	text-align: center;
+	height: 200px;
+}
+#perfil ul li .glyphicon-menu-left{
+	position: relative;
+	float: left;
+	left: 10px;
+	top: 25%;
+	font-size: 1.5em;
+}
+#perfil ul li .glyphicon-menu-left:hover{
+	color: #45cffe;
+	cursor: pointer;
+	transition-duration: 0.5s;
+}
+#perfil ul li .foto-perfil img{
+	height: 100px;
+	width: 110px;
+	border-radius: 100%;
+}

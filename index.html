@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+	<title>Nota Fiscal</title>
+
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap-datepicker3.css">
+	<link rel="stylesheet" type="text/css" href="./styles/index.css">
+	<link rel="stylesheet" type="text/css" href="./styles/animate.css">
+	<!-- Scritps assents -->
+	<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+
+	<!-- Scripts de configurãções-->
+	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.mask.js"></script>
+	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.maskMoney.js"></script>
+</head>
+<body>
+	<div ng-controller="ctrlListClientes">
+		<div id="lista-usuarios">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<div class="input-group">
+					  <input type="text" ng-model="pesqUser" id="busc-cli" class="form-control border-none" placeholder="Cliente" aria-describedby="sizing-addon1">
+					  <span class="input-group-addon" ng-click="buscarCli(pesqUser)" id="sizing-addon1">
+					  	<span class="glyphicon glyphicon-search"></span>
+					  </span>
+					</div>
+				</li>
+			</ul>
+			<ul class="list-group list-ul">
+				<li ng-repeat="cli in clientes" class="list-group-item">
+					<div ng-click="selectUser(cli)" id="abrir-perfil">
+						<span>{{cli.email}}</span><br>
+						<span><b>{{cli.nome}}</b></span><br>
+						<span>{{cli.cpf}}</span><br>
+					</div>
+				</li>
+				<li id="li-selecionado" class="list-group-item">
+					<div ng-click="selectUser(cliSelecionado)">
+						<span>{{cliSelecionado.email}}</span><br>
+						<span><b>{{cliSelecionado.nome}}</b></span><br>
+						<span>{{cliSelecionado.cpf}}</span><br>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div id="perfil">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span id="voltar-menu" class="glyphicon glyphicon-menu-left"></span>
+					<div class="foto-perfil">
+						<img src="http://www.sonoticiaboa.com.br/wp-content/uploads/2013/10/Modelo_close2.jpg" alt="">
+					</div>
+					<br>
+					<span><b>{{infoCli.nome}}</b></span><br>
+					<span>CPF: {{infoCli.cpf}}, Cód: {{infoCli.codigo}} </span>
+				</li>
+				<li class="list-group-item">
+				<span><b>OBSERVAÇÕES IMPORTANTES</b></span><br>
+					{{infoCli.obs}}
+				</li>
+				<li class="list-group-item">
+				<span><b>E-MAIL</b></span><br>
+					{{infoCli.email}}
+				</li>
+				<li class="list-group-item">
+				<span><b>TELEFONE</b></span><br>
+					+ {{infoCli.telefone.pais}} {{infoCli.telefone.area}} {{infoCli.telefone.numero}}
+				</li>
+				<li class="list-group-item">
+				<span><b>ENDEREÇO</b></span><br>
+					{{infoCli.endereco.logradouro}},{{infoCli.endereco.numero}} - {{infoCli.endereco.bairro}} - {{infoCli.endereco.cidade}} - {{infoCli.endereco.Estado}}
+				</li>
+			</ul>
+		</div>	
+
+		<div id="painelPrincipal">
+			<div class="principal-titulo">Fidelidade</div>
+			<ul class="list-options">
+				<li class="options-li">Transações</li>
+				<li>Beneficios</li>
+				<li>Historico</li>
+			</ul>
+
+			<div id="transacoes">
+
+				<ul class="list-options">
+					<li>Saldo</li>
+					<li>Historico</li>
+					<li>Utilizados</li>
+					<li>Perdidos</li>
+				</ul>
+				
+				<div class="add-nota">
+					<span class="titulo">Adicionar nota</span>
+					<div class="add-nota-painel">
+						<br>
+						<span class="titulo-label">LOJA</span>
+						<input type="text" ng-model="loja_nota" class="form-control" disabled="true" required/>
+						
+						<br>
+
+						<ul class="nota-opcoes">
+							<li>
+								<span class="titulo-label">NO DA NOTA</span>
+								<input type="text" ng-model="no_nota" class="form-control" disabled="true" required />
+							</li>
+							<li>
+								<span class="titulo-label">DATA DA NOTA</span>
+								<input type="text" ng-model="data_nota" class="form-control" disabled="true" id="date-pick" placeholder="__/__/__" required />
+							</li>
+							<li>
+								<span class="titulo-label">FORMA DE PAGAMENTO</span>
+								<select id="pgt_nota" ng-model="pgt_nota" class="form-control" placeholder="Selecionar" disabled="true" required >
+							    	<option class="default-me" value="" selected style="display: none;">Selecionar</option>
+						            <option value="Avista">Avista</option>
+						            <option value="Aprazo">Aprazo</option>
+							    </select>
+							</li>
+							<li>
+								<span class="titulo-label">VALOR</span>
+								<input type="text" ng-model="valor_nota" class="form-control" placeholder="R$" id="nota-valor" disabled="true"required />
+							</li>
+							<div class="nota-btn">
+								<button class="btn btn-default" disabled="true">Cancelar</button>
+								<button class="btn btn-default" disabled="true" ng-click="addNota()">Adicionar</button>
+							</div>
+						</ul>
+					
+					</div>
+					<div class="cad-nota">
+						<span class="titulo-label">Cadastrar notas</span><br><br>
+						<span>Você precisa confirmar o cadastro dessa lista de notas</span><br><br>
+						<div class="painel-cad-nota">	
+							<table class="table">
+							    <thead>
+							      <tr>
+							        <th>LOJA</th>
+							        <th>NO NOTA</th>
+							        <th>DATA DA NOTA</th>
+							        <th>CADASTRO</th>
+							        <th>VALOR</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <tr ng-repeat="notas in dadosNotas">
+							        <td>{{notas.loja_nota}}</td>
+							        <td>{{notas.no_nota}}</td>
+							        <td>{{notas.data_nota}}</td>
+							        <td>{{notas.dataAtual}}</td>
+							        <td>{{notas.valor_nota}}</td>
+							      </tr>
+							    </tbody>
+							  </table>
+						</div><br>
+					    <div class="nota-btn">
+							<button class="btn btn-default" disabled="true">Cancelar</button>
+							<button class="btn btn-default" disabled="true" ng-click="notaFiscal()">Cadastrar</button>
+						</div>
+					</div>
+				</div>
+			</div>	
+
+		</div>
+	</div>
+</body>
+	<script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="./scripts/index.js"></script>
+	<script type="text/javascript" src="./scripts/efeitos.js"></script>
+</html>
